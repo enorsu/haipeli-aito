@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ammo : MonoBehaviour
 
 {
-    private float 
+    private float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,4 +18,4 @@ public class Ammo : MonoBehaviour
         transform.Translate(Vector2.up * -5 * Time.deltaTime);
     }
     }
-}
+
