@@ -35,6 +35,14 @@ public class Player : MonoBehaviour
         
     }
 
+    private void OnEnable() {
+        controls.Enable();
+    }
+
+    private void onDisable() {
+        controls.Disable();
+    }
+
     private void FixedUpdate(){
         Move(); 
     }
@@ -45,9 +53,7 @@ public class Player : MonoBehaviour
         body.MovePosition(body.position + movement);
     }
 
-    private void OnEnable() {
-        controls.Enable();
-    }
+
 
 }
 
