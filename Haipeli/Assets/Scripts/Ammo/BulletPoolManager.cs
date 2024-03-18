@@ -18,12 +18,36 @@ public class BulletPoolManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
+        InitializePool();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void InitializePool() {
+
+        for(int i = 0; i < bulletAmount; i++) {
+            GameObject bullet = Instantiate(bulletPrefab);
+            bullet.SetActive(false);
+            bulletPool.Enqueue(bullet);
+        }
+
+    }
+
+    public GameObject GetBullet() {
+
+        if(bulletPool.Count > 0) {
+            GameObject bullet = bulletPool.Dequeue();
+            bullet.SetActive(true);
+            return bullet;
+        } else {
+            return null;
+        }
         
     }
 }
